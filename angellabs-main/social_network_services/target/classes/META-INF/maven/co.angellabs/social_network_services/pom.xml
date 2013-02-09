@@ -5,5 +5,5 @@
     <artifactId>angellabs-main</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>social_networking_services</artifactId>
+  <artifactId>social_network_services</artifactId>
 </project>
