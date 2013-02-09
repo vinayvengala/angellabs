@@ -14,6 +14,7 @@
   	<module>entrepreneur</module>
   	<module>angellbas-entities</module>
   	<module>social_networking_services</module>
+  	<module>social_network_services</module>
   </modules>
   <dependencies>
   
