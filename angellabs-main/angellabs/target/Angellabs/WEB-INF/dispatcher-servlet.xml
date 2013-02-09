@@ -8,8 +8,13 @@
 	   		http://www.springframework.org/schema/context/spring-context-3.0.xsd
 			http://www.springframework.org/schema/mvc 
 			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+<<<<<<< HEAD
 			
 	
+=======
+		
+	<context:component-scan base-package="co.angellabs.controllers" />
+>>>>>>> ee2431be828c4f0e94d5e51a88c31439f50b160e
 	<import resource="application-context.xml"/>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
