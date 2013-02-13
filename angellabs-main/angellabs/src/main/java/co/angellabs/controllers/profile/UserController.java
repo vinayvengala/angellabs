@@ -1,5 +1,8 @@
 package co.angellabs.controllers.profile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,9 +30,13 @@ public class UserController extends AuthenticationController  {
 		return new ModelAndView("login",model);
 	}
 	
-	public ModelAndView validateUserLogin(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	@RequestMapping(value="/validateUser.htm",method=RequestMethod.GET)
+	public ModelAndView validateUserLogin(HttpServletRequest request,
+			HttpServletResponse response,ModelMap model) {
+		int user_id=Integer.parseInt(request.getParameter("user_id"));
+		User user=userBasicServices.validateUser(user_id);
+		
+		return new ModelAndView("index",model);
 	}
 
 	
@@ -56,9 +63,9 @@ public class UserController extends AuthenticationController  {
 		
 			boolean isReg = userBasicServices.register(user);
 			
-			return new ModelAndView("index",model);
+			return new ModelAndView("userRegistration1",model);
 	}
-		
+	@RequestMapping()	
 	public ModelAndView deleteUser(User user) {
 		// TODO Auto-generated method stub
 		return null;

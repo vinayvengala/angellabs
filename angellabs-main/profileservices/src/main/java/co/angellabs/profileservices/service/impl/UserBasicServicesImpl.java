@@ -11,9 +11,10 @@ public class UserBasicServicesImpl implements UserBasicServices {
 
 	@Autowired
 	private UserBasicServicesDAO userBasicServiceDAO;
-	public User validateUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public User validateUser(int user_id) {
+
+		User user=userBasicServiceDAO.validateUser(user_id);
+		return user;
 	}
 
 	public boolean register(User user) {

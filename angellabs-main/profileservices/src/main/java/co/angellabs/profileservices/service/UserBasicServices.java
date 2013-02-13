@@ -4,7 +4,7 @@ import co.angellabs.entities.dto.User;
 
 public interface UserBasicServices  {
 
-	public User validateUser(User user);
+	public User validateUser(int user_id);
 	
 	public boolean register( User user);
 }

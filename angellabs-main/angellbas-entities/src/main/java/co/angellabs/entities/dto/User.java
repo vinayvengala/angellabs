@@ -2,7 +2,7 @@ package co.angellabs.entities.dto;
 
 public class User {
 
-	private long userId;
+	private int userId;
 	
 	private String name;
 	
@@ -12,11 +12,11 @@ public class User {
 	
 	private byte enabled;
 	
-	public long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getName() {

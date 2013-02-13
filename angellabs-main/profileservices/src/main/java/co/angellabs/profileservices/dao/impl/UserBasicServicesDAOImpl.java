@@ -1,5 +1,6 @@
 package co.angellabs.profileservices.dao.impl;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -14,23 +15,26 @@ public class UserBasicServicesDAOImpl implements UserBasicServicesDAO  {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	@Autowired
-	private HibernateTemplate hibernateTemplate;
+	//@Autowired
+	//private HibernateTemplate hibernateTemplate;
 	
 	
 	@Transactional
 	public boolean saveUser(User user) {
 		
-		/*String sqlqry="INSERT INTO users (username, password, email) VALUES ("+user.getName()+","+user.getPassword()+","+user.getEmail()+")";*/
-		hibernateTemplate.save(user);
-		
+		sessionFactory.getCurrentSession().save(user);
 		return true;
 
 	}
-	
-	public User validateUserLogin(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public User validateUser(int user_id) {
+
+		String sqlqry="UPDATE users SET enabled=1 WHERE user_id="+user_id+"";
+		SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery(sqlqry);
+		query.executeUpdate();
+		Object obj=sessionFactory.getCurrentSession().get(User.class, user_id);
+		
+		return (User)obj;
 	}
 
 }
